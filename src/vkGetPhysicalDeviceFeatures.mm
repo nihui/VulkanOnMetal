@@ -58,9 +58,9 @@ VKAPI_ATTR void VKAPI_CALL vkGetPhysicalDeviceFeatures(
     features.shaderStorageImageArrayDynamicIndexing;
     features.shaderClipDistance;
     features.shaderCullDistance;
-    features.shaderFloat64 = VK_TRUE;
+    features.shaderFloat64 = VK_FALSE;
     features.shaderInt64   = VK_FALSE;
-    features.shaderInt16   = VK_FALSE;
+    features.shaderInt16   = VK_TRUE;
     features.shaderResourceResidency;
     features.shaderResourceMinLod;
     features.sparseBinding;
