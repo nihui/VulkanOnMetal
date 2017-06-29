@@ -6,6 +6,6 @@ add_definitions("/DVK_USE_PLATFORM_MACOS_MVK")
 include_directories(../include)
 
 file(GLOB HEADERS *.h)
-file(GLOB SOURCES *.cpp)
+file(GLOB SOURCES *.mm)
 
 add_library(VulkanOnMetal SHARED ${HEADERS} ${SOURCES})
