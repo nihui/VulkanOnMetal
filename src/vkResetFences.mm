@@ -19,5 +19,9 @@ VKAPI_ATTR VkResult VKAPI_CALL vkResetFences(
     uint32_t       fenceCount,
     const VkFence* pFences)
 {
+    for (uint32_t i = 0; i < fenceCount; ++i)
+    {
+        pFences[i]->fence = [device->physicalDevice->device newFence];
+    }
     return VK_SUCCESS;
 }

@@ -56,6 +56,7 @@ struct VkCommandBuffer_T
 
 struct VkFence_T
 {
+    id<MTLFence> fence;
 };
 
 struct VkDeviceMemory_T

@@ -30,6 +30,8 @@ VKAPI_ATTR VkResult VKAPI_CALL vkCreateFence(
         fence = new VkFence_T();
     }
 
+    fence->fence = [device->physicalDevice->device newFence];
+
     *pFence = fence;
 
     return VK_SUCCESS;
