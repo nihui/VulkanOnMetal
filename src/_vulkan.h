@@ -16,6 +16,7 @@
 
 #include <vulkan/vulkan.h>
 
+#include <string>
 #include <vector>
 
 struct VkInstance_T
@@ -127,7 +128,7 @@ struct VkCommandPool_T
 
 struct VkSurfaceKHR_T
 {
-    void* view;
+    const void* view;
 };
 
 struct VkSwapchainKHR_T
