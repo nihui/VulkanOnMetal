@@ -14,6 +14,8 @@
 
 #pragma once
 
+#include <Metal/Metal.h>
+
 #include <vulkan/vulkan.h>
 
 #include <string>
@@ -28,7 +30,8 @@ struct VkInstance_T
 
 struct VkPhysicalDevice_T
 {
-    VkInstance instance;
+    VkInstance    instance;
+    id<MTLDevice> device;
 };
 
 struct VkDevice_T
@@ -39,7 +42,8 @@ struct VkDevice_T
 
 struct VkQueue_T
 {
-    VkDevice device;
+    VkDevice            device;
+    id<MTLCommandQueue> queue;
 };
 
 struct VkSemaphore_T

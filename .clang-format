@@ -1,5 +1,5 @@
 ---
-Language:        Cpp
+Language:        ObjC
 AccessModifierOffset: -4
 AlignAfterOpenBracket: Align
 AlignConsecutiveAssignments: true

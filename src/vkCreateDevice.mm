@@ -42,6 +42,9 @@ VKAPI_ATTR VkResult VKAPI_CALL vkCreateDevice(
             queue = new VkQueue_T();
         }
 
+        queue->device = device;
+        queue->queue  = physicalDevice->device.newCommandQueue;
+
         device->queues.push_back(queue);
     }
 

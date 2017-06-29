@@ -9,3 +9,4 @@ file(GLOB HEADERS *.h)
 file(GLOB SOURCES *.mm)
 
 add_library(VulkanOnMetal SHARED ${HEADERS} ${SOURCES})
+target_link_libraries(VulkanOnMetal objc "-framework Metal")

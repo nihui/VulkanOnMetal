@@ -19,5 +19,23 @@ VKAPI_ATTR VkResult VKAPI_CALL vkEnumeratePhysicalDevices(
     uint32_t*         pPhysicalDeviceCount,
     VkPhysicalDevice* pPhysicalDevices)
 {
+    auto devices = MTLCopyAllDevices();
+
+    uint32_t physicalDeviceCount = 0;
+    for (uint32_t i = 0; i < devices.count; ++i)
+    {
+        if (pPhysicalDevices)
+        {
+            VkPhysicalDevice physicalDevice = new VkPhysicalDevice_T();
+            physicalDevice->device          = devices[i];
+            physicalDevice->instance        = instance;
+
+            pPhysicalDevices[physicalDeviceCount] = physicalDevice;
+        }
+        ++physicalDeviceCount;
+    }
+
+    *pPhysicalDeviceCount = physicalDeviceCount;
+
     return VK_SUCCESS;
 }
