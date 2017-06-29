@@ -30,6 +30,9 @@ VKAPI_ATTR VkResult VKAPI_CALL vkCreateShaderModule(
         shaderModule = new VkShaderModule_T();
     }
 
+    NSError* error;
+    shaderModule->library = [device->physicalDevice->device newLibraryWithData:(dispatch_data_t)pCreateInfo->pCode error:&error];
+
     *pShaderModule = shaderModule;
 
     return VK_SUCCESS;
