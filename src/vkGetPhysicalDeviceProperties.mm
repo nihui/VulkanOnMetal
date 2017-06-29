@@ -151,4 +151,6 @@ VKAPI_ATTR void VKAPI_CALL vkGetPhysicalDeviceProperties(
     properties.pipelineCacheUUID;
     properties.limits           = limits;
     properties.sparseProperties = sparseProperties;
+
+    *pProperties = properties;
 }

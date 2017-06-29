@@ -88,6 +88,7 @@ struct VkImageView_T
 
 struct VkShaderModule_T
 {
+    id<MTLLibrary> library;
 };
 
 struct VkPipelineCache_T
