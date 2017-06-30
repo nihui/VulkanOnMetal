@@ -66,6 +66,7 @@ struct VkDeviceMemory_T
 
 struct VkBuffer_T
 {
+    id<MTLBuffer> buffer;
 };
 
 struct VkImage_T

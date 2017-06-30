@@ -21,4 +21,5 @@ VKAPI_ATTR void VKAPI_CALL vkCmdDrawIndirect(
     uint32_t        drawCount,
     uint32_t        stride)
 {
+    [commandBuffer->encoder drawPrimitives:MTLPrimitiveTypeTriangle indirectBuffer:buffer->buffer indirectBufferOffset:offset];
 }
