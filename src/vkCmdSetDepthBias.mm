@@ -20,4 +20,5 @@ VKAPI_ATTR void VKAPI_CALL vkCmdSetDepthBias(
     float           depthBiasClamp,
     float           depthBiasSlopeFactor)
 {
+    [commandBuffer->encoder setDepthBias:depthBiasConstantFactor slopeScale:depthBiasSlopeFactor clamp:depthBiasClamp];
 }
