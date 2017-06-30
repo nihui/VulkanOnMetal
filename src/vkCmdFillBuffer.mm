@@ -21,4 +21,9 @@ VKAPI_ATTR void VKAPI_CALL vkCmdFillBuffer(
     VkDeviceSize    size,
     uint32_t        data)
 {
+    NSRange range  = {};
+    range.location = dstOffset;
+    range.length   = size;
+
+    [(id<MTLBlitCommandEncoder>)commandBuffer->encoder fillBuffer:dstBuffer->buffer range:range value:data];
 }
