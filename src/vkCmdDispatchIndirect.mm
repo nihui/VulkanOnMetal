@@ -19,4 +19,5 @@ VKAPI_ATTR void VKAPI_CALL vkCmdDispatchIndirect(
     VkBuffer        buffer,
     VkDeviceSize    offset)
 {
+    [(id<MTLComputeCommandEncoder>)commandBuffer->encoder dispatchThreadgroupsWithIndirectBuffer:buffer->buffer indirectBufferOffset:offset threadsPerThreadgroup:MTLSizeMake(8, 8, 1)];
 }

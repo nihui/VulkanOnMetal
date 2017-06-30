@@ -20,4 +20,5 @@ VKAPI_ATTR void VKAPI_CALL vkCmdDispatch(
     uint32_t        groupCountY,
     uint32_t        groupCountZ)
 {
+    [(id<MTLComputeCommandEncoder>)commandBuffer->encoder dispatchThreadgroups:MTLSizeMake(groupCountX, groupCountY, groupCountZ) threadsPerThreadgroup:MTLSizeMake(8, 8, 1)];
 }
