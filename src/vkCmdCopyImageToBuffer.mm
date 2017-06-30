@@ -22,4 +22,18 @@ VKAPI_ATTR void VKAPI_CALL vkCmdCopyImageToBuffer(
     uint32_t                 regionCount,
     const VkBufferImageCopy* pRegions)
 {
+    for (uint32_t i = 0; i < regionCount; ++i)
+    {
+        MTLOrigin srcOrigin = {};
+        srcOrigin.x         = pRegions[i].imageOffset.x;
+        srcOrigin.y         = pRegions[i].imageOffset.y;
+        srcOrigin.z         = pRegions[i].imageOffset.z;
+
+        MTLSize srcSize = {};
+        srcSize.width   = pRegions[i].imageExtent.width;
+        srcSize.height  = pRegions[i].imageExtent.height;
+        srcSize.depth   = pRegions[i].imageExtent.depth;
+
+        [(id<MTLBlitCommandEncoder>)commandBuffer->encoder copyFromTexture:srcImage->texture sourceSlice:pRegions[i].imageSubresource.baseArrayLayer sourceLevel:pRegions[i].imageSubresource.mipLevel sourceOrigin:srcOrigin sourceSize:srcSize toBuffer:dstBuffer->buffer destinationOffset:pRegions[i].bufferOffset destinationBytesPerRow:pRegions[i].bufferRowLength destinationBytesPerImage:pRegions[i].bufferImageHeight];
+    }
 }

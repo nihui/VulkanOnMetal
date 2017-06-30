@@ -71,6 +71,7 @@ struct VkBuffer_T
 
 struct VkImage_T
 {
+    id<MTLTexture> texture;
 };
 
 struct VkEvent_T

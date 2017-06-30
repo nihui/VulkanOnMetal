@@ -21,4 +21,8 @@ VKAPI_ATTR void VKAPI_CALL vkCmdCopyBuffer(
     uint32_t            regionCount,
     const VkBufferCopy* pRegions)
 {
+    for (uint32_t i = 0; i < regionCount; ++i)
+    {
+        [(id<MTLBlitCommandEncoder>)commandBuffer->encoder copyFromBuffer:srcBuffer->buffer sourceOffset:pRegions[i].srcOffset toBuffer:dstBuffer->buffer destinationOffset:pRegions[i].dstOffset size:pRegions[i].size];
+    }
 }
