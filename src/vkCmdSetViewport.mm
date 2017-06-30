@@ -20,4 +20,16 @@ VKAPI_ATTR void VKAPI_CALL vkCmdSetViewport(
     uint32_t          viewportCount,
     const VkViewport* pViewports)
 {
+    for (uint32_t i = firstViewport; i < viewportCount; ++i)
+    {
+        MTLViewport viewport = {};
+        viewport.originX     = pViewports[i].x;
+        viewport.originY     = pViewports[i].y;
+        viewport.width       = pViewports[i].width;
+        viewport.height      = pViewports[i].height;
+        viewport.znear       = pViewports[i].minDepth;
+        viewport.zfar        = pViewports[i].maxDepth;
+
+        [commandBuffer->encoder setViewport:viewport];
+    }
 }

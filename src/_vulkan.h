@@ -52,6 +52,7 @@ struct VkSemaphore_T
 
 struct VkCommandBuffer_T
 {
+    id<MTLRenderCommandEncoder> encoder;
 };
 
 struct VkFence_T

@@ -20,4 +20,14 @@ VKAPI_ATTR void VKAPI_CALL vkCmdSetScissor(
     uint32_t        scissorCount,
     const VkRect2D* pScissors)
 {
+    for (uint32_t i = firstScissor; i < scissorCount; ++i)
+    {
+        MTLScissorRect rect = {};
+        rect.x              = pScissors[i].offset.x;
+        rect.y              = pScissors[i].offset.y;
+        rect.width          = pScissors[i].extent.width;
+        rect.height         = pScissors[i].extent.height;
+
+        [commandBuffer->encoder setScissorRect:rect];
+    }
 }
