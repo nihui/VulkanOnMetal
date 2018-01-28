@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.0)
 
 include_directories(../include)
 
+add_subdirectory(cube)
 add_subdirectory(vulkaninfo)
 
 add_definitions("-Wall -Wextra -Werror -Wno-unused-parameter -Wno-unused-value")
